@@ -30,18 +30,6 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - frontend
-      - backend
-    networks:
-      - mern_network
-
 networks:
   mern_network:
     driver: bridge
