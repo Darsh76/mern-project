@@ -4,7 +4,7 @@ services:
   backend:
     build: ./mern/backend
     expose:
-      - "5050"
+      - "5050:5050"
     networks:
       - mern_network
     environment:
@@ -15,7 +15,7 @@ services:
   frontend:
     build: ./mern/frontend
     expose:
-      - "5173"
+      - "5173:5173"
     networks:
       - mern_network
     environment:
