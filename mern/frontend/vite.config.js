@@ -19,4 +19,3 @@ export default defineConfig({
     strictPort: true, // optional but helps with debugging
   },
 });
-)
