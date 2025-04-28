@@ -1,34 +1,36 @@
+version: '3.8'
+
 services:
   backend:
     build: ./mern/backend
     ports:
-      - "5050:5050" 
+      - "5050:5050"
     networks:
       - mern_network
     environment:
-      MONGO_URI: mongodb://mongo:27017/mydatabase  
+      MONGO_URI: mongodb://mongo:27017/mydatabase
     depends_on:
       - mongodb
 
   frontend:
     build: ./mern/frontend
     ports:
-      - "5173:5173"  
+      - "5173:5173"
     networks:
       - mern_network
     environment:
-      REACT_APP_API_URL: http://localhost:5050 
+      REACT_APP_API_URL: http://localhost:5050
 
   mongodb:
-    image: mongo:latest  
+    image: mongo:latest
     ports:
-      - "27017:27017"  
+      - "27017:27017"
     networks:
       - mern_network
     volumes:
-      - mongo-data:/data/db  
-      
- nginx:
+      - mongo-data:/data/db
+
+  nginx:
     build: ./mern-project/nginx
     ports:
       - "80:80"
@@ -41,7 +43,7 @@ services:
 
 networks:
   mern_network:
-    driver: bridge 
+    driver: bridge
 
 volumes:
   mongo-data:
