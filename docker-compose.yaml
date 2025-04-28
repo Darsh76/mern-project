@@ -31,7 +31,7 @@ services:
       - mongo-data:/data/db
 
   nginx:
-    build: ./mern-project/nginx
+    build: ./nginx
     ports:
       - "80:80"
       - "443:443"
